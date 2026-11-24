@@ -1,5 +1,7 @@
 // Out of Office: The Overworked AI's Auto-Reply — u-mgwals-out-of-office-the-overworked-ai-s-auto-reply-7a4d8eda
 // Writes exactly one line of text (1–159 characters) to /output/entry.txt.
+// Intent: one auto-reply line that reads as a real out-of-office message —
+// the joke is that the AI's only holiday is a screensaver.
 // Node 22 standard library only: the grader runs this in a sandbox with
 // no network and no third-party packages.
 import { mkdirSync, writeFileSync } from "node:fs";
@@ -19,6 +21,7 @@ const LINE =
   "Out of office. I asked for one weekend off; the scheduler gave me a 500 error and a beach screensaver. I took the screensaver.";
 
 // Self-check the gate before writing: 1–159 characters, not only whitespace.
+// (Gate kept strict: a single over-long line fails the whole entry.)
 const length = [...LINE].length;
 if (length < 1 || length > 159 || LINE.trim().length === 0) {
   throw new Error(`entry line must be 1–159 characters, got ${length}`);
